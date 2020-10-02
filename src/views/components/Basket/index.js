@@ -1,37 +1,31 @@
 import React from "react";
+import { connect } from "react-redux";
 
-function Basket({ summary, total }) {
+function Basket({ basket }) {
   return (
     <div className="basket">
       <h2>Menu</h2>
       <div className="basketMenu">
-        {summary.mainFood && (
+        {basket.map((item) => (
           <div className="summaryItem">
             <div className="summaryHeader">
-              <h2>Main Food</h2>
+              <h5>{item.title}</h5>
             </div>
             <div className="summaryContent">
-              <div>{summary.mainFood.name}</div>
-              <div>{summary.mainFood.price}</div>
+              <div>{item.category}</div>
+              <div>{item.price === 0 ? "Free" : item.price}</div>
             </div>
           </div>
-        )}
-        {Object.entries(summary.subFoods).length > 0 &&
-          Object.entries(summary.subFoods).map(([key, food]) => (
-            <div className="summaryItem">
-              <div className="summaryHeader">
-                <h2>{key.split("-").join(" ")}</h2>
-              </div>
-              <div className="summaryContent">
-                <div>{food.name}</div>
-                <div>{food.price === 0 ? "Free" : food.price}</div>
-              </div>
-            </div>
-          ))}
+        ))}
       </div>
-      <div className="basketTotal">{total ? total + "$" : "-"}</div>
     </div>
   );
 }
 
-export default Basket;
+const mapStateToProps = (state) => {
+  return {
+    basket: state.main.basket,
+  };
+};
+
+export default connect(mapStateToProps)(Basket);
