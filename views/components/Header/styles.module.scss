@@ -1,0 +1,36 @@
+@import '../../../public/static/assets/styles/abstracts/variables';
+@import '../../../public/static/assets/styles/base/breakpoints';
+
+.header {
+  width: 100%;
+  height: 689px;
+  background-image: url('../../../public/static/assets/png/header1.png');
+  position: relative;
+
+  &Overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(245, 197, 24, 0.9);
+  }
+
+  .container {
+    position: relative;
+  }
+
+  &Content {
+    width: 50%;
+    color: $neutral-6;
+    margin-top: 127px;
+
+    h2 {
+      font-size: 65px;
+      margin-bottom: 30px;
+    }
+    p {
+      line-height: 24px;
+    }
+  }
+}

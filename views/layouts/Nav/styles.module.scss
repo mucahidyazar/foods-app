@@ -1,0 +1,34 @@
+@import '../../../public/static/assets/styles/abstracts/variables';
+
+.nav {
+  height: 128px;
+
+  &Container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.navLeft {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  font-size: 40px;
+  font-weight: 900;
+  margin-right: 100px;
+
+  span {
+    color: $primary-1;
+  }
+}
+.navItems {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+.navItem {
+  margin-right: 50px;
+}
