@@ -1,5 +1,45 @@
-@import '../../../public/static/assets/styles/abstracts/mixins';
 @import '../../../public/static/assets/styles/abstracts/variables';
 @import '../../../public/static/assets/styles/base/breakpoints';
-@import '../../../public/static/assets/styles/base/normalize';
-@import '../../../public/static/assets/styles/base/typography';
+
+.catalog {
+  width: 100%;
+  margin: 100px 0;
+}
+
+.cards {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+
+  &OverlayLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba($neutral-6, 1),
+      rgba($neutral-6, 0.01)
+    );
+    margin: 0 !important;
+  }
+  &OverlayRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+      to left,
+      rgba($neutral-6, 1),
+      rgba($neutral-6, 0.01)
+    );
+    margin: 0 !important;
+  }
+
+  & > div:not(:last-child) {
+    margin-right: 20px;
+  }
+}

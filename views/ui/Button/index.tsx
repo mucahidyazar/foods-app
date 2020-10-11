@@ -16,16 +16,20 @@ const Button = ({
   firstIcon,
   lastIcon,
 }: ButtonProps) => {
+  const calcType = () => {
+    if (type === 'circle') {
+      return styles.circle
+    } else if (type === 'small') {
+      return styles.small
+    } else if (type === 'nobg') {
+      return styles.nobg
+    } else {
+      return ''
+    }
+  }
+
   return (
-    <div
-      className={
-        styles.button +
-        ' ' +
-        (type && (type === 'circle' ? styles.circle : styles.small)) +
-        ' ' +
-        className
-      }
-    >
+    <div className={styles.button + ' ' + calcType() + ' ' + className}>
       {firstIcon && <img src={firstIcon} alt="" />}
       {name}
       {lastIcon && <img src={lastIcon} alt="" />}

@@ -1,13 +1,25 @@
 import React from 'react'
 import styles from './styles.module.scss'
-//import SearchSvg from '../../../public/static/assets/svgs/search.svg'
+import Title from './Title'
+import Card from './Card'
 
-const BoilerPlate = () => {
+interface TitleProps {
+  title?: string
+}
+
+const Catalog: React.FC<TitleProps> = ({ title }) => {
   return (
-    <div>
-      <h1></h1>
+    <div className={styles.catalog}>
+      <Title title="Popular Movies" />
+      <div className={styles.cards}>
+        <div className={styles.cardsOverlayLeft}></div>
+        <div className={styles.cardsOverlayRight}></div>
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   )
 }
 
-export default BoilerPlate
+export default Catalog

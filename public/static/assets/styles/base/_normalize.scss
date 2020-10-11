@@ -4,7 +4,7 @@ html {
   font-size: 10px;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.6rem;
   width: 100vw;
 }
@@ -23,6 +23,7 @@ div#__next,
 div#__next > div,
 div#__next > div > div {
   height: 100%;
+  width: 100%;
 }
 
 ul > li {

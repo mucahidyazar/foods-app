@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.headerOverlay}>
-        <div className="container" style={{ position: 'relative' }}>
+        <div className={styles.container}>
           <div className={styles.headerContent}>
             <h2>Welcome to MovieUP</h2>
             <p>
