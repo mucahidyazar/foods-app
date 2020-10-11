@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "next-dev": "next dev",
+    "export": "next export",
     "build": "next build",
     "start": "next start"
   },
