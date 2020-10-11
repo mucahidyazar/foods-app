@@ -6,7 +6,7 @@ import { getProducts, setProducts } from '../../redux/actions'
 import MainLayout from '../../views/layouts/Main'
 import Header from '../../views/components/Header'
 
-function Home({ t, data, dispatch }) {
+function Home({ dispatch }): any {
   dispatch(getProducts())
 
   return (
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(withTranslation('common')(Home))
+export default connect(mapStateToProps)(Home)
