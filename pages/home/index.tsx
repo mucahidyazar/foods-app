@@ -4,7 +4,7 @@ import { withTranslation } from '../../config/i18n/index'
 import { connect } from 'react-redux'
 import { getProducts, setProducts } from '../../redux/actions'
 import MainLayout from '../../views/layouts/Main'
-import Header from 'views/components/Header'
+import Header from '../../views/components/Header'
 
 function Home({ t, data, dispatch }) {
   dispatch(getProducts())
