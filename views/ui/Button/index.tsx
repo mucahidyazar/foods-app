@@ -1,7 +1,21 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-const Button = ({ name, type, className, firstIcon, lastIcon }) => {
+interface ButtonProps {
+  name: string
+  type?: string
+  className?: any
+  firstIcon?: any
+  lastIcon?: any
+}
+
+const Button = ({
+  name,
+  type,
+  className,
+  firstIcon,
+  lastIcon,
+}: ButtonProps) => {
   return (
     <div
       className={
