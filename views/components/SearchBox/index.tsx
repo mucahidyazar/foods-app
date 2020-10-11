@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import SelectBox from '../../ui/SelectBox'
 import Input from '../../ui/Input'
-import Button from 'views/ui/Button'
+import Button from '../../ui/Button'
 import SearchSvg from '../../../public/static/assets/svgs/arrow-right.svg'
 
 const BoilerPlate = () => {

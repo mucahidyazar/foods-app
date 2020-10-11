@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from './styles.module.scss'
-import Footer from '../Footer'
 import Nav from '../Nav'
 
 interface IProps {
