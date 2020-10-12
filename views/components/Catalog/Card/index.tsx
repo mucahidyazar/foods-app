@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import ImdbSvg from '../../../../public/static/assets/svgs/imdb.svg'
 import Button from '../../../ui/Button'
+import Link from 'next/link'
 
 interface TitleProps {
   title?: string
@@ -34,7 +35,11 @@ const BoilerPlate: React.FC<TitleProps> = ({ title }) => {
         </div>
         <div className={styles.infoFooter}>
           <Button name="Add to Favorites" type="nobg" />
-          <Button name="View Details" type="nobg" />
+          <Link href="/detail">
+            <a>
+              <Button name="View Details" type="nobg" />
+            </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
+import Button from '../../../ui/Button'
 import styles from './styles.module.scss'
 //import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
@@ -11,7 +13,12 @@ const Title: React.FC<TitleProps> = ({ title }) => {
     <div className="container">
       <div className={styles.title}>
         <h3 className={styles.titleLeft}>{title}</h3>
-        <p className={styles.titleRight}>View More</p>
+
+        <Link href="/favorites">
+          <a>
+            <Button name="View Details" type="nobg" />
+          </a>
+        </Link>
       </div>
     </div>
   )

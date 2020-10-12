@@ -2,13 +2,9 @@
 
 .nav {
   height: 128px;
-
-  &Container {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .navLeft {
   display: flex;
@@ -22,6 +18,9 @@
   span {
     color: $primary-1;
   }
+  a {
+    color: $neutral-0;
+  }
 }
 .navItems {
   display: flex;
@@ -31,4 +30,14 @@
 }
 .navItem {
   margin-right: 50px;
+
+  a {
+    color: $neutral-0;
+  }
+
+  &Active {
+    a {
+      color: $primary-1;
+    }
+  }
 }
