@@ -27,7 +27,7 @@ const Nav = () => (
           </li>
         </ul>
       </div>
-      <Input />
+      <Input className={styles.navSearch} />
     </nav>
   </div>
 )

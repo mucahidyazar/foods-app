@@ -11,7 +11,7 @@
   background-color: $neutral-5;
 }
 .input {
-  min-width: 80%;
+  min-width: calc(100% - 40px);
   border: none;
   outline: none;
   background-color: transparent;

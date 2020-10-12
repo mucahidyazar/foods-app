@@ -38,3 +38,23 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@include tablet {
+  .header {
+    &Content {
+      width: 80%;
+    }
+  }
+
+  .search {
+    bottom: -35%;
+  }
+}
+
+@include large-mobile {
+  .header {
+    &Content {
+      width: 100%;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 @import '../../../public/static/assets/styles/abstracts/variables';
+@import '../../../public/static/assets/styles/base/breakpoints';
 
 .nav {
   height: 128px;
@@ -39,5 +40,34 @@
     a {
       color: $primary-1;
     }
+  }
+}
+
+@include tablet {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .navItem {
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .navLeft {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .navSearch {
+    width: 100% !important;
+  }
+}
+
+@include mobile {
+  .navItem:first-child {
+    display: none;
   }
 }

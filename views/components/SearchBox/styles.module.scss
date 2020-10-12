@@ -6,27 +6,39 @@
   height: 129px;
   border-radius: 10px;
   background-color: $neutral-6;
-  display: flex;
+  display: grid;
+  grid-template-columns: 16fr 19fr 55fr 18fr;
+  grid-gap: 20px;
   align-items: center;
   padding: 23px;
   box-shadow: 0px 16px 28px rgba(141, 40, 173, 0.15);
 
-  & > div:not(:last-child) {
-    margin-right: 20px;
-  }
-
   &Year {
-    width: 161px;
+    width: 100% !important;
   }
 
   &Type {
-    width: 197px;
+    width: 100% !important;
   }
 
   &Input {
-    width: 554px;
+    width: 100%;
   }
   &Button {
-    width: 180px;
+    width: 100% !important;
+  }
+}
+
+@include tablet {
+  .searchBox {
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+
+    &Input {
+      grid-column: 1 / span 2;
+    }
+    &Button {
+      grid-column: 1 / span 2;
+    }
   }
 }

@@ -12,34 +12,70 @@
   display: flex;
   position: relative;
 
-  &OverlayLeft {
+  &OverlayLeft,
+  &OverlayRight {
     position: absolute;
     top: 0;
-    left: 0;
     width: 30%;
     height: 100%;
+    margin: 0 !important;
+  }
+  &OverlayLeft {
+    left: 0;
     background: linear-gradient(
       to right,
       rgba($neutral-6, 1),
       rgba($neutral-6, 0.01)
     );
-    margin: 0 !important;
   }
   &OverlayRight {
-    position: absolute;
-    top: 0;
     right: 0;
-    width: 30%;
-    height: 100%;
     background: linear-gradient(
       to left,
       rgba($neutral-6, 1),
       rgba($neutral-6, 0.01)
     );
-    margin: 0 !important;
+  }
+  &ArrowLeft,
+  &ArrowRight {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $neutral-6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-1;
+      color: $neutral-6;
+    }
+  }
+  &ArrowLeft {
+    left: 5%;
+  }
+  &ArrowRight {
+    right: 5%;
   }
 
   & > div:not(:last-child) {
     margin-right: 20px;
+  }
+}
+
+@include tablet {
+  .card {
+    width: 100%;
+  }
+  .cards {
+    &OverlayLeft,
+    &OverlayRight {
+      display: none;
+    }
   }
 }

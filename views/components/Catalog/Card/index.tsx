@@ -6,11 +6,12 @@ import Link from 'next/link'
 
 interface TitleProps {
   title?: string
+  className?: string
 }
 
-const BoilerPlate: React.FC<TitleProps> = ({ title }) => {
+const BoilerPlate: React.FC<TitleProps> = ({ title, className }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card + ' ' + className}>
       <div className={styles.cardImage}>
         <img src="https://source.unsplash.com/random/270x386" alt="" />
       </div>
