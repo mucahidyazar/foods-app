@@ -1,0 +1,16 @@
+@import '../../../public/static/assets/styles/abstracts/variables';
+@import '../../../public/static/assets/styles/base/breakpoints';
+
+.categoryTitle {
+  display: flex;
+  align-items: center;
+  font-size: 45px;
+  font-weight: 600;
+  width: 100%;
+  margin: 75px 0;
+
+  & > span:last-child {
+    margin-left: 20px;
+    color: $primary-1;
+  }
+}

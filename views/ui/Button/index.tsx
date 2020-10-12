@@ -23,6 +23,10 @@ const Button = ({
       return styles.small
     } else if (type === 'nobg') {
       return styles.nobg
+    } else if (type === 'pageText') {
+      return styles.pageText
+    } else if (type === 'pageNum') {
+      return styles.pageNum
     } else {
       return ''
     }

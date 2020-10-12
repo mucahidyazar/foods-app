@@ -3,8 +3,8 @@ import styles from './styles.module.scss'
 import Input from '../../ui/Input'
 
 const Nav = () => (
-  <nav className={styles.nav}>
-    <div className="container">
+  <div className="container">
+    <nav className={styles.nav}>
       <div className={styles.navContainer}>
         <div className={styles.navLeft}>
           <div className={styles.logo}>
@@ -17,8 +17,8 @@ const Nav = () => (
         </div>
         <Input />
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 )
 
 export default Nav

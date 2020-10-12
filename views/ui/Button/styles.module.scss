@@ -39,3 +39,32 @@
     background-color: rgba($color: $primary-1, $alpha: 0.1);
   }
 }
+
+.pageNum,
+.pageText {
+  height: 50px;
+  background-color: rgba($color: $primary-1, $alpha: 0.15);
+  color: $primary-1;
+
+  &:hover {
+    background-color: rgba($color: $primary-1, $alpha: 0.3);
+  }
+
+  &Active {
+    background-color: $primary-1;
+    color: $neutral-6;
+
+    &:hover {
+      background-color: rgba($color: $primary-1, $alpha: 0.9);
+    }
+  }
+}
+
+.pageNum {
+  width: 50px;
+  padding: 0;
+  justify-content: center;
+}
+.pageText {
+  width: min-content;
+}

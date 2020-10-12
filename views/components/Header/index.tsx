@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.headerOverlay}>
-        <div className={styles.container}>
+        <div className="container">
           <div className={styles.headerContent}>
             <h2>Welcome to MovieUP</h2>
             <p>
@@ -15,9 +15,9 @@ const Header = () => {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
             </p>
           </div>
-          <SearchBox />
         </div>
       </div>
+      <SearchBox className={styles.search} />
     </div>
   )
 }

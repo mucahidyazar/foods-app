@@ -16,10 +16,6 @@
     background-color: rgba(245, 197, 24, 0.9);
   }
 
-  .container {
-    position: relative;
-  }
-
   &Content {
     width: 50%;
     color: $neutral-6;
@@ -33,4 +29,11 @@
       line-height: 24px;
     }
   }
+}
+
+.search {
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

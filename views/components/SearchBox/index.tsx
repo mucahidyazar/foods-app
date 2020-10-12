@@ -5,19 +5,25 @@ import Input from '../../ui/Input'
 import Button from '../../ui/Button'
 import SearchSvg from '../../../public/static/assets/svgs/arrow-right.svg'
 
-const BoilerPlate = () => {
+interface SearchBoxProps {
+  className?: string
+}
+
+const SearchBox: React.FC<SearchBoxProps> = ({ className }) => {
   return (
-    <div className={styles.searchBox}>
-      <SelectBox label="Year" className={styles.searchBoxYear} />
-      <SelectBox label="Type" className={styles.searchBoxType} />
-      <Input className={styles.searchBoxInput} />
-      <Button
-        name="Search"
-        lastIcon={SearchSvg}
-        className={styles.searchBoxButton}
-      />
+    <div className={'container' + ' ' + className}>
+      <div className={styles.searchBox}>
+        <SelectBox label="Year" className={styles.searchBoxYear} />
+        <SelectBox label="Type" className={styles.searchBoxType} />
+        <Input className={styles.searchBoxInput} />
+        <Button
+          name="Search"
+          lastIcon={SearchSvg}
+          className={styles.searchBoxButton}
+        />
+      </div>
     </div>
   )
 }
 
-export default BoilerPlate
+export default SearchBox
