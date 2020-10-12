@@ -8,13 +8,18 @@ import SearchBox from '../../views/components/SearchBox'
 import Path from '../../views/components/Path'
 import CategoryTitle from '../../views/components/CategoryTitle'
 import GroupOne from '../../views/components/Groups/GroupOne'
+import { useRouter } from 'next/router'
 
 function Home({ dispatch }): any {
   dispatch(getProducts())
 
+  const router = useRouter()
+  const { pathname } = router
+  const path = pathname.slice(1)
+
   return (
     <MainLayout title="Home Page">
-      <Path />
+      <Path path={path} />
       <SearchBox />
       <CategoryTitle title="Favorites" />
       <GroupOne data={['1', '2', '3', '4', '5', '6']} />

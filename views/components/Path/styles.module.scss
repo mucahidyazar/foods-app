@@ -20,4 +20,7 @@
     color: $primary-1;
     font-weight: 600;
   }
+  & > span:last-child {
+    text-transform: capitalize;
+  }
 }
