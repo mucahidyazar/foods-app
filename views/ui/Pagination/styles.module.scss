@@ -7,31 +7,31 @@
   justify-content: center;
   margin-bottom: 75px;
 
-  & > div:nth-child(2),
-  & > div:nth-child(3),
-  & > div:nth-child(4) {
+  & > button:nth-child(2),
+  & > button:nth-child(3),
+  & > button:nth-child(4) {
     margin-right: 10px;
   }
-  & > div:first-child {
+  & > button:first-child {
     margin-right: 20px;
   }
-  & > div:last-child {
+  & > button:last-child {
     margin-left: 20px;
   }
 }
 
 @include mobile {
   .pagination {
-    & > div:nth-child(2),
-    & > div:nth-child(3),
-    & > div:nth-child(4) {
+    & > button:nth-child(2),
+    & > button:nth-child(3),
+    & > button:nth-child(4) {
       margin-right: 1px;
     }
-    & > div:first-child {
+    & > button:first-child {
       padding: 0 7px;
       margin-right: 2px;
     }
-    & > div:last-child {
+    & > button:last-child {
       padding: 0 7px;
       margin-left: 2px;
     }

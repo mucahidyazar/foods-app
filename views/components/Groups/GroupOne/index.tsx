@@ -8,17 +8,16 @@ interface TitleProps {
   data?: any
 }
 
-const BoilerPlate: React.FC<TitleProps> = ({ data }) => {
+const GroupOne: React.FC<TitleProps> = ({ data }) => {
   return (
     <div className="container">
       <div className={styles.searchResults}>
-        {data.map((el, index) => {
-          return <MovieCardOne key={index} />
+        {data.map((movie) => {
+          return <MovieCardOne key={movie.imdbID} movie={movie} />
         })}
       </div>
-      <Pagination />
     </div>
   )
 }
 
-export default BoilerPlate
+export default GroupOne

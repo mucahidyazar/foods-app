@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import fetch from 'isomorphic-unfetch'
 import styles from './styles.module.scss'
 import { withTranslation } from '../../config/i18n/index'
 import { connect } from 'react-redux'
@@ -8,22 +8,53 @@ import SearchBox from '../../views/components/SearchBox'
 import Path from '../../views/components/Path'
 import CategoryTitle from '../../views/components/CategoryTitle'
 import GroupOne from '../../views/components/Groups/GroupOne'
+import Pagination from '../../views/ui/Pagination'
+import { useRouter } from 'next/router'
 
-function Home({ dispatch }): any {
-  dispatch(getProducts())
+function Home({ data }): any {
+  const router = useRouter()
+  const { query } = router
+
+  if (!query.value) {
+    router.push('/404')
+  }
 
   return (
     <MainLayout title="Home Page">
       <Path />
       <SearchBox />
-      <CategoryTitle title="Search results" text="godfather" />
-      <GroupOne data={['1', '2', '3', '4', '5', '6']} />
+      <CategoryTitle title="Search results" text={query.value} />
+      {query ? (
+        <GroupOne data={data.Search} />
+      ) : (
+        <div>There is no result with ''</div>
+      )}
+
+      <Pagination
+        page={query.page}
+        pagesCount={data.totalResults / data.Search.length}
+      />
     </MainLayout>
   )
 }
 
-Home.getInitialProps = async () => {
-  return { namespacesRequired: ['common'] }
+export async function getServerSideProps(ctx) {
+  const value = ctx.query.value
+  const type = ctx.query.type
+  const page = ctx.query.page
+  const year = ctx.query.year
+
+  const res = await fetch(
+    `http://www.omdbapi.com/?s=` +
+      (value && (value !== '' ? `${value}` : 'a')) +
+      (year ? (year !== '' ? `&y=${year}` : '') : '') +
+      (page ? (page !== '' ? `&page=${page}` : '&page=1') : '&page=1') +
+      (type ? (type !== '' ? `&type=${type}` : '') : '') +
+      `&apikey=3f2c84e8`
+  )
+  const data = await res.json()
+
+  return { props: { data } }
 }
 
 const mapStateToProps = (state) => {

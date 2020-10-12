@@ -2,19 +2,27 @@ import React from 'react'
 import styles from './styles.module.scss'
 
 interface ButtonProps {
-  name: string
+  name?: string
   type?: string
   className?: any
   firstIcon?: any
   lastIcon?: any
+  onClick?: any
+  active?: boolean
+  disabled?: boolean
+  children?: React.ReactElement
 }
 
 const Button = ({
   name,
+  children,
   type,
   className,
   firstIcon,
   lastIcon,
+  onClick,
+  active,
+  disabled,
 }: ButtonProps) => {
   const calcType = () => {
     if (type === 'circle') {
@@ -33,11 +41,25 @@ const Button = ({
   }
 
   return (
-    <div className={styles.button + ' ' + calcType() + ' ' + className}>
+    <button
+      className={
+        styles.button +
+        ' ' +
+        calcType() +
+        ' ' +
+        className +
+        ' ' +
+        (active ? styles.active : '') +
+        ' ' +
+        (disabled ? styles.disabled : '')
+      }
+      onClick={onClick ? onClick : () => {}}
+      disabled={disabled}
+    >
       {firstIcon && <img src={firstIcon} alt="" />}
-      {name}
+      {name || children}
       {lastIcon && <img src={lastIcon} alt="" />}
-    </div>
+    </button>
   )
 }
 

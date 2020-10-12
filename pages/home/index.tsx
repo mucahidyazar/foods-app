@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import axios from 'axios'
 import { withTranslation } from '../../config/i18n/index'
 import { connect } from 'react-redux'
 import { getProducts, setProducts } from '../../redux/actions'
@@ -16,10 +14,6 @@ function Home({ dispatch }): any {
       <Catalog />
     </MainLayout>
   )
-}
-
-Home.getInitialProps = async () => {
-  return { namespacesRequired: ['common'] }
 }
 
 const mapStateToProps = (state) => {

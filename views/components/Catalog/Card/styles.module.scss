@@ -42,7 +42,7 @@
     margin-bottom: 20px;
   }
   &HeaderRight {
-    & > div:not(:last-child) {
+    & > button:not(:last-child) {
       margin-right: 19px;
     }
   }
@@ -57,7 +57,7 @@
   }
 
   &Footer {
-    & > div:not(:last-child) {
+    & > button:not(:last-child) {
       margin-right: 25px;
     }
   }

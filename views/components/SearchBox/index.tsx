@@ -1,25 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import SelectBox from '../../ui/SelectBox'
 import Input from '../../ui/Input'
 import Button from '../../ui/Button'
 import SearchSvg from '../../../public/static/assets/svgs/arrow-right.svg'
+import { types, years } from '../../../config/dummy/data'
+import { useRouter } from 'next/router'
 
 interface SearchBoxProps {
   className?: string
 }
 
 const SearchBox: React.FC<SearchBoxProps> = ({ className }) => {
+  const router = useRouter()
+
+  const [value, setValue] = useState('')
+  const [year, setYear] = useState('')
+  const [type, setType] = useState('')
+
+  const [canSearch, setCanSearch] = useState(false)
+
+  useEffect(() => {
+    if (type !== '' && year !== '' && value !== '') {
+      setCanSearch(true)
+    } else {
+      setCanSearch(false)
+    }
+  }, [value, year, type, canSearch])
+
   return (
     <div className={'container' + ' ' + className}>
       <div className={styles.searchBox}>
-        <SelectBox label="Year" className={styles.searchBoxYear} />
-        <SelectBox label="Type" className={styles.searchBoxType} />
-        <Input className={styles.searchBoxInput} />
+        <SelectBox
+          state={year}
+          setState={setYear}
+          label="Year"
+          className={styles.searchBoxYear}
+          data={years}
+        />
+        <SelectBox
+          state={type}
+          setState={setType}
+          label="Type"
+          className={styles.searchBoxType}
+          data={types}
+        />
+        <Input
+          className={styles.searchBoxInput}
+          value={value}
+          setValue={setValue}
+          year={year}
+          type={type}
+        />
         <Button
           name="Search"
           lastIcon={SearchSvg}
           className={styles.searchBoxButton}
+          onClick={() => {
+            router.push(
+              `/search` +
+                (value !== '' ? `?value=${value}` : 'a') +
+                (year !== '' ? `&year=${year}` : '') +
+                (type !== '' ? `&type=${type}` : '')
+            )
+          }}
+          disabled={!canSearch}
         />
       </div>
     </div>

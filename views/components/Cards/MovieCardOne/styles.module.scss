@@ -11,16 +11,25 @@
     height: 436px;
     position: relative;
     margin-bottom: 30px;
+  }
 
-    &Footer {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 14px;
+  &HeaderFooter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 14px;
+  }
+  &Genres {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > button:not(:last-child) {
+      margin-right: 10px;
+      margin-bottom: 10px;
     }
   }
   &Image {
@@ -70,5 +79,9 @@
   &Description {
     line-height: 30px;
     color: $neutral-1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

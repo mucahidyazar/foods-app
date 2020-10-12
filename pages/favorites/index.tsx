@@ -10,8 +10,8 @@ import CategoryTitle from '../../views/components/CategoryTitle'
 import GroupOne from '../../views/components/Groups/GroupOne'
 import { useRouter } from 'next/router'
 
-function Home({ dispatch }): any {
-  dispatch(getProducts())
+function Home({ data }): any {
+  //dispatch(getProducts())
 
   const router = useRouter()
   const { pathname } = router
@@ -22,7 +22,13 @@ function Home({ dispatch }): any {
       <Path path={path} />
       <SearchBox />
       <CategoryTitle title="Favorites" />
-      <GroupOne data={['1', '2', '3', '4', '5', '6']} />
+      {data ? (
+        <GroupOne data={['1', '2', '3', '4', '5', '6']} />
+      ) : (
+        <div className={'container' + ' ' + styles.noContent}>
+          <h4>There is no content. You can search and add some movies.</h4>
+        </div>
+      )}
     </MainLayout>
   )
 }

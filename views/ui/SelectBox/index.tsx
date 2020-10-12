@@ -1,13 +1,30 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-const SearchBox = ({ label, className }) => {
+const SearchBox = ({ label, className, data, state, setState }) => {
   return (
     <div className={styles.selectBox + ' ' + className}>
-      <p className={styles.selectBoxText}>{label}</p>
-      <div
-        className={styles.selectBoxIcon + ' ' + styles.selectBoxIconActive}
-      ></div>
+      <input type="checkbox" id={label} />
+      <label className={styles.select} htmlFor={label}>
+        <p className={styles.selectBoxText}>{state !== '' ? state : label}</p>
+        <div
+          className={styles.selectBoxIcon + ' ' + styles.selectBoxIconActive}
+        ></div>
+      </label>
+      <div className={styles.menu}>
+        {data.map((item) => (
+          <label
+            key={item}
+            className={styles.menuItem}
+            onClick={() => {
+              setState(item)
+            }}
+            htmlFor={label}
+          >
+            {item}
+          </label>
+        ))}
+      </div>
     </div>
   )
 }

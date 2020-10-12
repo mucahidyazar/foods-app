@@ -40,7 +40,7 @@
     margin-bottom: 20px;
   }
   &HeaderRight {
-    & > div:not(:last-child) {
+    & > button:not(:last-child) {
       margin-right: 19px;
     }
   }
@@ -55,8 +55,8 @@
   }
 
   &Footer {
-    & > div:not(:last-child) {
-      margin-right: 25px;
+    & > button:not(:last-child) {
+      margin-right: 15px;
     }
   }
 }
@@ -99,11 +99,11 @@
   .info {
     &Footer {
       flex-wrap: wrap;
-      & > div:not(:last-child) {
+      & > button:not(:last-child) {
         margin-right: 10px;
       }
 
-      & > div {
+      & > button {
         margin-bottom: 10px;
       }
     }

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './styles.module.scss'
 import Input from '../../ui/Input'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const Nav = ({}) => {
+const Nav = () => {
+  const [value, setValue] = useState('')
   const router = useRouter()
   const { pathname } = router
 
@@ -44,7 +45,7 @@ const Nav = ({}) => {
             </li>
           </ul>
         </div>
-        <Input className={styles.navSearch} />
+        <Input className={styles.navSearch} value={value} setValue={setValue} />
       </nav>
     </div>
   )
