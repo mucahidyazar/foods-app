@@ -3,8 +3,14 @@
 
 .searchResults {
   display: grid;
-  grid-template-columns: repeat(3, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   grid-column-gap: 25px;
   grid-row-gap: 60px;
   margin-bottom: 75px;
+}
+
+@include mobile {
+  .searchResults {
+    grid-template-columns: 100%;
+  }
 }
