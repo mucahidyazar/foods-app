@@ -25,8 +25,13 @@
 }
 .button {
   background-color: transparent !important;
+
+  & i::before {
+    color: $neutral-1 !important;
+  }
+
   &:hover {
     background-color: transparent !important;
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }

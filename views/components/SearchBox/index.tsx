@@ -54,7 +54,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ className }) => {
         />
         <Button
           name="Search"
-          lastIcon={SearchSvg}
+          lastIcon="arrow-right"
           className={styles.searchBoxButton}
           onClick={() => {
             router.push(

@@ -4,6 +4,7 @@ import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 import Link from 'next/link'
 import Button from '../Button'
 import { useRouter } from 'next/router'
+import Icon from '../Icon'
 
 const SearchBox = ({
   className = '',
@@ -38,7 +39,7 @@ const SearchBox = ({
           )
         }
       >
-        <img src={SearchSvg} alt="" className={styles.logo} />
+        <Icon icon="search" />
       </Button>
     </div>
   )

@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from '../Icon'
 import styles from './styles.module.scss'
 
 interface ButtonProps {
@@ -56,9 +57,9 @@ const Button = ({
       onClick={onClick ? onClick : () => {}}
       disabled={disabled}
     >
-      {firstIcon && <img src={firstIcon} alt="" />}
+      {firstIcon && <Icon icon={firstIcon} />}
       {name || children}
-      {lastIcon && <img src={lastIcon} alt="" />}
+      {lastIcon && <Icon icon={lastIcon} />}
     </button>
   )
 }

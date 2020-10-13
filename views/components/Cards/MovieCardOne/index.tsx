@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
 import Button from '../../../ui/Button'
 import styles from './styles.module.scss'
-import heartLine from '../../../../public/static/assets/svgs/heart-line.svg'
+import Icon from '../../../ui/Icon'
 import imdbLogo from '../../../../public/static/assets/svgs/imdb.svg'
 import Link from 'next/link'
 import { switchFavorite } from '../../../../redux/actions'
@@ -60,8 +60,7 @@ const MovieCardOne: React.FC<TitleProps> = ({ movie, dispatch, favorites }) => {
             }
             onClick={addFavoriteHandler}
           >
-            {/* <img src={heartLine} alt="" className={styles.cardIconImg} /> */}
-            <i className="bs bs-country0003" />
+            <Icon icon="heart-line" />
           </div>
         </div>
       </div>
