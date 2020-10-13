@@ -29,12 +29,18 @@ export async function getServerSideProps(ctx) {
   const type = ctx.query.type
   const year = ctx.query.year
 
+  if (!id || !type || !year) {
+    ctx.res.setHeader('location', '/404')
+    ctx.res.statusCode = 302
+    ctx.res.end()
+  }
+
   const res = await fetch(
     `http://www.omdbapi.com/?i=${id}&type=${type}&y=${year}&plot=full&apikey=3f2c84e8`
   )
   const data = await res.json()
 
-  if (!data.Genre) {
+  if (!data || !data.Genre) {
     ctx.res.setHeader('location', '/404')
     ctx.res.statusCode = 302
     ctx.res.end()

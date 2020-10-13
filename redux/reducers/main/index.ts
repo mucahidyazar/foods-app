@@ -1,21 +1,38 @@
-import { GET_PRODUCTS, SET_PRODUCTS } from '../../types'
+import { SWITCH_FAVORITE, GET_FAVORITES } from '../../types'
 
 const INITIAL_STATE = {
-  products: [],
+  favorites: [],
 }
 
 export const MainReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_PRODUCTS:
-      return {
-        ...state,
-        products: action.data,
+    case SWITCH_FAVORITE:
+      const isThere = state.favorites.findIndex(
+        (favorite) => favorite.imdbID === action.data.imdbID
+      )
+      let favorites
+      if (isThere !== -1) {
+        favorites = state.favorites.filter(
+          (fav) => fav.imdbID !== action.data.imdbID
+        )
+        localStorage.setItem('favorites', JSON.stringify(favorites))
+        return {
+          ...state,
+          favorites,
+        }
+      } else {
+        favorites = [...state.favorites, action.data]
+        localStorage.setItem('favorites', JSON.stringify(favorites))
+        return {
+          ...state,
+          favorites,
+        }
       }
 
-    case SET_PRODUCTS:
+    case GET_FAVORITES:
       return {
         ...state,
-        products: action.data,
+        favorites: action.favorites,
       }
 
     default:

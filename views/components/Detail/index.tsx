@@ -1,14 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import styles from './styles.module.scss'
 import ImdbSvg from '../../../public/static/assets/svgs/imdb.svg'
 import Button from '../../ui/Button'
+import { switchFavorite } from '../../../redux/actions'
 
 interface TitleProps {
   data?: any
+  favorites?: any
   className?: string
+  dispatch?: any
 }
 
-const Detail: React.FC<TitleProps> = ({ data, className }) => {
+const Detail: React.FC<TitleProps> = ({
+  data,
+  className,
+  dispatch,
+  favorites,
+}) => {
+  const [isFavorite, setIsFavorite] = useState(false)
+
+  useEffect(() => {
+    let isThere = null
+    if (favorites.length) {
+      isThere = favorites.findIndex((movie) => movie.imdbID === data.imdbID)
+    }
+    if (isThere !== null && isThere !== -1) {
+      setIsFavorite(true)
+    } else {
+      setIsFavorite(false)
+    }
+  }, [favorites])
+
+  const addFavoriteHandler = () => {
+    dispatch(switchFavorite(data))
+  }
+
   return (
     <div className={styles.card + ' ' + className}>
       <div className={styles.cardImage}>
@@ -21,7 +48,11 @@ const Detail: React.FC<TitleProps> = ({ data, className }) => {
             <p>{data.imdbRating}</p>
           </div>
           <div className={styles.infoHeaderRight}>
-            <Button name="Add to Favorites" type="nobg" />
+            <Button
+              name="Add to Favorites"
+              type={isFavorite ? '' : 'nobg'}
+              onClick={addFavoriteHandler}
+            />
           </div>
         </div>
         <div className={styles.infoContent}>
@@ -39,4 +70,10 @@ const Detail: React.FC<TitleProps> = ({ data, className }) => {
   )
 }
 
-export default Detail
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.main.favorites,
+  }
+}
+
+export default connect(mapStateToProps)(Detail)

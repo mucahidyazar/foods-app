@@ -9,7 +9,7 @@ interface TitleProps {
   className?: string
 }
 
-const BoilerPlate: React.FC<TitleProps> = ({ title, className }) => {
+const CatalogCard: React.FC<TitleProps> = ({ title, className }) => {
   return (
     <div className={styles.card + ' ' + className}>
       <div className={styles.cardImage}>
@@ -47,4 +47,4 @@ const BoilerPlate: React.FC<TitleProps> = ({ title, className }) => {
   )
 }
 
-export default BoilerPlate
+export default CatalogCard

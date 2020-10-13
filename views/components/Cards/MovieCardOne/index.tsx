@@ -5,13 +5,18 @@ import styles from './styles.module.scss'
 import heartLine from '../../../../public/static/assets/svgs/heart-line.svg'
 import imdbLogo from '../../../../public/static/assets/svgs/imdb.svg'
 import Link from 'next/link'
+import { switchFavorite } from '../../../../redux/actions'
+import { connect } from 'react-redux'
 
 interface TitleProps {
   movie?: any
+  dispatch?: any
+  favorites: any
 }
 
-const MovieCardOne: React.FC<TitleProps> = ({ movie }) => {
+const MovieCardOne: React.FC<TitleProps> = ({ movie, dispatch, favorites }) => {
   const [data, setData] = useState(null)
+  const [isFavorite, setIsFavorite] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,40 +28,71 @@ const MovieCardOne: React.FC<TitleProps> = ({ movie }) => {
     fetchData()
   }, [])
 
+  const addFavoriteHandler = () => {
+    dispatch(switchFavorite(data))
+  }
+
+  useEffect(() => {
+    let isThere = null
+    if (favorites.length && data) {
+      isThere = favorites.findIndex((movie) => movie.imdbID === data.imdbID)
+    }
+    if (isThere !== null && isThere !== -1) {
+      setIsFavorite(true)
+    } else {
+      setIsFavorite(false)
+    }
+  }, [favorites, data])
+
   return (
-    <Link
-      href={`/detail?id=${movie.imdbID}&type=${movie.Type}&y=${movie.Year}`}
-    >
-      <a className={styles.card}>
-        <div className={styles.cardHeader}>
-          <img className={styles.cardImage} src={movie.Poster} alt="" />
-          <div className={styles.cardHeaderFooter}>
-            <div className={styles.cardGenres}>
-              {data?.Genre.split(', ').map((genre) => {
-                return <Button key={genre} name={genre} type="small" />
-              })}
-            </div>
-            <div className={styles.cardIcon}>
-              <img src={heartLine} alt="" className={styles.cardIconImg} />
-            </div>
+    <div className={styles.card}>
+      <div className={styles.cardHeader}>
+        <img className={styles.cardImage} src={movie.Poster} alt="" />
+        <div className={styles.cardHeaderFooter}>
+          <div className={styles.cardGenres}>
+            {data?.Genre.split(', ').map((genre) => {
+              return <Button key={genre} name={genre} type="small" />
+            })}
+          </div>
+          <div
+            className={
+              styles.cardIcon + ' ' + (isFavorite ? styles.cardIconActive : '')
+            }
+            onClick={addFavoriteHandler}
+          >
+            {/* <img src={heartLine} alt="" className={styles.cardIconImg} /> */}
+            <i className="bs bs-country0003" />
           </div>
         </div>
-        <div className={styles.cardInfo}>
-          <img src={imdbLogo} alt="" className={styles.cardInfoLogo} />{' '}
-          <span className={styles.cardPoint}>
-            {data ? data.imdbRating : 'N/A'}
-          </span>
-        </div>
-        <p className={styles.cardYear}>{movie.Year}</p>
-        <p className={styles.cardTitle}>{movie.Title}</p>
-        <p className={styles.cardDescription}>
-          {data
-            ? data.Plot
-            : 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.'}
-        </p>
-      </a>
-    </Link>
+      </div>
+
+      <Link
+        href={`/detail?id=${movie.imdbID}&type=${movie.Type}&y=${movie.Year}`}
+      >
+        <a>
+          <div className={styles.cardInfo}>
+            <img src={imdbLogo} alt="" className={styles.cardInfoLogo} />{' '}
+            <span className={styles.cardPoint}>
+              {data ? data.imdbRating : 'N/A'}
+            </span>
+          </div>
+          <p className={styles.cardYear}>{movie.Year}</p>
+          <p className={styles.cardTitle}>{movie.Title}</p>
+          <p className={styles.cardDescription}>
+            {data
+              ? data.Plot
+              : 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.'}
+          </p>
+        </a>
+      </Link>
+    </div>
   )
 }
 
-export default MovieCardOne
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.main.favorites,
+  }
+}
+
+export default connect(mapStateToProps)(MovieCardOne)

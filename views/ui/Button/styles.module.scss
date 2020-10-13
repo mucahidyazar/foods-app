@@ -14,7 +14,7 @@
   transition: all 0.3s ease-in-out;
   outline: none;
   border: none;
-  font-size: 20px;
+  font-size: 16px;
 
   &:hover {
     background-color: rgba($color: $primary-1, $alpha: 0.8);
@@ -22,6 +22,10 @@
 }
 .button.disabled {
   background-color: rgba($color: $primary-1, $alpha: 0.4);
+
+  &:hover {
+    cursor: not-allowed;
+  }
 }
 
 .circle {
@@ -41,7 +45,6 @@
 .nobg {
   background-color: transparent;
   color: $primary-1;
-  font-size: 16px;
 
   &:hover {
     background-color: rgba($color: $primary-1, $alpha: 0.1);
