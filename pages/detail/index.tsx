@@ -11,7 +11,7 @@ const Detail: React.FC<DetailProps> = ({ data }) => {
   return (
     <MainLayout title="Detail Page">
       <Path />
-      {data.Genre && (
+      {data?.Genre && (
         <div className="container">
           <DetailComp data={data} />
         </div>
