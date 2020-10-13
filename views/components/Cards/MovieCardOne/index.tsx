@@ -25,7 +25,7 @@ const MovieCardOne: React.FC<MovieCardOneProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       const res = await Axios.get(
-        `https://www.omdbapi.com/?i=${movie.imdbID}&type=${movie.Type}&y=${movie.Year}&plot=full&apikey=3f2c84e8`
+        `https://www.omdbapi.com/?i=${movie.imdbID}&type=${movie.Type}&y=${movie.Year}&plot=full&apikey=${process.env.OMDB_API}`
       )
       setData(res.data)
     }
