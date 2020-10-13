@@ -1,4 +1,5 @@
 @import '../../../public/static/assets/styles/abstracts/variables';
+@import '../../../public/static/assets/styles/abstracts/mixins';
 @import '../../../public/static/assets/styles/base/breakpoints';
 
 .catalog {
@@ -42,14 +43,14 @@
     height: 57px;
     border-radius: 50%;
     position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 40%;
     background-color: $neutral-6;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease-in-out;
+    @include transition(all 0.3s ease-in-out);
     cursor: pointer;
+    margin: 0 !important;
 
     &:hover {
       background-color: $primary-1;
@@ -60,10 +61,10 @@
     }
   }
   &ArrowLeft {
-    left: 5%;
+    left: 10%;
   }
   &ArrowRight {
-    right: 5%;
+    right: 10%;
   }
 
   & > div:not(:last-child) {
@@ -76,16 +77,11 @@
     width: 100%;
   }
   .cards {
+    width: 100%;
+
     &OverlayLeft,
     &OverlayRight {
       display: none;
-    }
-
-    &ArrowLeft {
-      left: 5%;
-    }
-    &ArrowRight {
-      right: 0;
     }
   }
 }

@@ -1,4 +1,5 @@
 @import '../../../public/static/assets/styles/abstracts/variables';
+@import '../../../public/static/assets/styles/abstracts/mixins';
 
 .selectBox {
   width: 150px;
@@ -7,7 +8,7 @@
   background-color: $neutral-2;
   border-radius: 8px;
   cursor: pointer;
-  transition: all ease-in-out 0.3s;
+  @include transition(all 0.3s ease-in-out);
   position: relative;
 
   &:hover {
@@ -19,7 +20,7 @@
     height: 5px;
     background: $primary-1;
     clip-path: polygon(0 0, 100% 0, 50% 100%, 0 0);
-    transition: all 0.3s ease-in-out;
+    @include transition(all 0.3s ease-in-out);
   }
   &IconActive {
     transform-origin: center;
