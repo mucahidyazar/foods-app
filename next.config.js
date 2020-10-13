@@ -7,6 +7,7 @@ const withCss = require('@zeit/next-css')
 const localeSubpaths = {}
 
 const nextConfig = {
+  target: 'serverless',
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
     localeSubpaths,

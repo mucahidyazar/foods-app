@@ -8,6 +8,7 @@
     "next-dev": "next dev",
     "export": "next export",
     "build": "next build",
+    "postbuild": "next-on-netlify",
     "start": "next start"
   },
   "dependencies": {
