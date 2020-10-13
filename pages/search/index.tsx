@@ -28,7 +28,7 @@ const Search: React.FC<SearchProps> = ({ data, query }) => {
 
       <Pagination
         page={query.page}
-        pagesCount={Math.ceil(data.totalResults / data.Search.length)}
+        pagesCount={Math.ceil(data.totalResults / 10)}
       />
     </MainLayout>
   )
