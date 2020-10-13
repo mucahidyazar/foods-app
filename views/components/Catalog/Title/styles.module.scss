@@ -17,3 +17,13 @@
     color: $primary-1;
   }
 }
+
+@include mobile {
+  .title {
+    margin: 10px 0;
+
+    &Left {
+      font-size: 20px;
+    }
+  }
+}
