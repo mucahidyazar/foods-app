@@ -62,7 +62,9 @@ export async function getServerSideProps(ctx) {
     ctx.res.end()
   }
 
-  return { props: { data, query: { value, page: page || '1' } } }
+  return {
+    props: { data: data || data.Error, query: { value, page: page || '1' } },
+  }
 }
 
 export default Search

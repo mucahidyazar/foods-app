@@ -55,6 +55,9 @@
 @include large-mobile {
   .header {
     &Content {
+      h2 {
+        font-size: 45px;
+      }
       width: 100%;
     }
   }

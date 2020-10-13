@@ -11,7 +11,7 @@ const Detail: React.FC<DetailProps> = ({ data }) => {
   return (
     <MainLayout title="Detail Page">
       <Path />
-      {data?.Genre && (
+      {data.Genre && (
         <div className="container">
           <DetailComp data={data} />
         </div>
@@ -24,7 +24,7 @@ const Detail: React.FC<DetailProps> = ({ data }) => {
 export async function getServerSideProps(ctx) {
   const id = ctx.query.id
   const type = ctx.query.type
-  const year = ctx.query.year
+  const year = ctx.query.y
 
   if (!id || !type || !year) {
     ctx.res.setHeader('location', '/404')
