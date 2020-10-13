@@ -25,11 +25,12 @@ const MovieCardOne: React.FC<MovieCardOneProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       const res = await Axios.get(
-        `https://www.omdbapi.com/?i=${movie.imdbID}&type=${movie.Type}&y=${movie.Year}&plot=full&apikey=${process.env.OMDB_API}`
+        `https://www.omdbapi.com/?i=${movie.imdbID}&type=${movie.Type}&y=${movie.Year}&plot=full&apikey=${process.env.NEXT_PUBLIC_OMDB_API}`
       )
       setData(res.data)
     }
     fetchData()
+    console.log(process.env.NEXT_PUBLIC_OMDB_API)
   }, [])
 
   const addFavoriteHandler = () => {
