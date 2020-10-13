@@ -52,7 +52,7 @@ export async function getServerSideProps(ctx) {
       (year ? (year !== '' ? `&y=${year}` : '') : '') +
       (page ? (page !== '' ? `&page=${page}` : '&page=1') : '&page=1') +
       (type ? (type !== '' ? `&type=${type}` : '') : '') +
-      `&apikey=3f2c84e8`
+      `&apikey=${process.env.OMDB_API}`
   )
   const data = await res.json()
 
