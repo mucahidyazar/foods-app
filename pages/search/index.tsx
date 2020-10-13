@@ -47,7 +47,7 @@ export async function getServerSideProps(ctx) {
   }
 
   const res = await fetch(
-    `http://www.omdbapi.com/?s=` +
+    `https://www.omdbapi.com/?s=` +
       (value && (value !== '' ? `${value}` : 'a')) +
       (year ? (year !== '' ? `&y=${year}` : '') : '') +
       (page ? (page !== '' ? `&page=${page}` : '&page=1') : '&page=1') +

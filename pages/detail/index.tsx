@@ -33,7 +33,7 @@ export async function getServerSideProps(ctx) {
   }
 
   const res = await fetch(
-    `http://www.omdbapi.com/?i=${id}&type=${type}&y=${year}&plot=full&apikey=3f2c84e8`
+    `https://www.omdbapi.com/?i=${id}&type=${type}&y=${year}&plot=full&apikey=3f2c84e8`
   )
   const data = await res.json()
 
