@@ -1,14 +1,12 @@
-import { spawn } from 'child_process'
 import React from 'react'
 import styles from './styles.module.scss'
-//import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
-interface TitleProps {
+interface CatelogTitle {
   title?: string
   text?: string
 }
 
-const BoilerPlate: React.FC<TitleProps> = ({ title, text }) => {
+const CatelogTitle: React.FC<CatelogTitle> = ({ title, text }) => {
   return (
     <div className="container">
       <div className={styles.categoryTitle}>
@@ -18,4 +16,4 @@ const BoilerPlate: React.FC<TitleProps> = ({ title, text }) => {
   )
 }
 
-export default BoilerPlate
+export default CatelogTitle

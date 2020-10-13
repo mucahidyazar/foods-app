@@ -2,13 +2,13 @@ import React from 'react'
 import styles from './styles.module.scss'
 //import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
-interface TitleProps {
+interface IconInterface {
   style?: any
-  icon?: any
-  className?: any
+  icon?: string
+  className?: string
 }
 
-const Icon: React.FC<TitleProps> = ({ style, icon, className }) => {
+const Icon: React.FC<IconInterface> = ({ style, icon, className }) => {
   return (
     <i style={style} className={`${styles.icon} icon-${icon} ${className}`} />
   )

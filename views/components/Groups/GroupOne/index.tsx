@@ -1,14 +1,12 @@
 import React from 'react'
 import styles from './styles.module.scss'
 import MovieCardOne from '../../../components/Cards/MovieCardOne'
-import Pagination from '../../../ui/Pagination'
-//import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
-interface TitleProps {
+interface GroupOneProps {
   data?: any
 }
 
-const GroupOne: React.FC<TitleProps> = ({ data }) => {
+const GroupOne: React.FC<GroupOneProps> = ({ data }) => {
   return (
     <div className="container">
       <div className={styles.searchResults}>

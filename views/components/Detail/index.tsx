@@ -5,14 +5,14 @@ import ImdbSvg from '../../../public/static/assets/svgs/imdb.svg'
 import Button from '../../ui/Button'
 import { switchFavorite } from '../../../redux/actions'
 
-interface TitleProps {
+interface DetailProps {
   data?: any
   favorites?: any
-  className?: string
   dispatch?: any
+  className?: string
 }
 
-const Detail: React.FC<TitleProps> = ({
+const Detail: React.FC<DetailProps> = ({
   data,
   className,
   dispatch,

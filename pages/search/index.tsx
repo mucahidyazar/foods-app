@@ -1,26 +1,22 @@
 import fetch from 'isomorphic-unfetch'
-import styles from './styles.module.scss'
-import { withTranslation } from '../../config/i18n/index'
-import { connect } from 'react-redux'
-import { getProducts, setProducts } from '../../redux/actions'
 import MainLayout from '../../views/layouts/Main'
 import SearchBox from '../../views/components/SearchBox'
 import Path from '../../views/components/Path'
 import CategoryTitle from '../../views/components/CategoryTitle'
 import GroupOne from '../../views/components/Groups/GroupOne'
 import Pagination from '../../views/ui/Pagination'
-import { useRouter } from 'next/router'
 
-function Home({ data }): any {
-  const router = useRouter()
-  const { query } = router
-
-  if (!query.value) {
-    router.push('/404')
+interface SearchProps {
+  data: any
+  query: {
+    value: string
+    page: string
   }
+}
 
+const Search: React.FC<SearchProps> = ({ data, query }) => {
   return (
-    <MainLayout title="Home Page">
+    <MainLayout title="Search Page">
       <Path />
       <SearchBox />
       <CategoryTitle title="Search results" text={query.value} />
@@ -32,7 +28,7 @@ function Home({ data }): any {
 
       <Pagination
         page={query.page}
-        pagesCount={data.totalResults / data.Search.length}
+        pagesCount={Math.ceil(data.totalResults / data.Search.length)}
       />
     </MainLayout>
   )
@@ -44,6 +40,12 @@ export async function getServerSideProps(ctx) {
   const page = ctx.query.page
   const year = ctx.query.year
 
+  if (!value) {
+    ctx.res.setHeader('location', '/404')
+    ctx.res.statusCode = 302
+    ctx.res.end()
+  }
+
   const res = await fetch(
     `http://www.omdbapi.com/?s=` +
       (value && (value !== '' ? `${value}` : 'a')) +
@@ -54,13 +56,13 @@ export async function getServerSideProps(ctx) {
   )
   const data = await res.json()
 
-  return { props: { data } }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    products: state.main.products,
+  if (!data || !data.Search) {
+    ctx.res.setHeader('location', '/404')
+    ctx.res.statusCode = 302
+    ctx.res.end()
   }
+
+  return { props: { data, query: { value, page: page || '1' } } }
 }
 
-export default connect(mapStateToProps)(Home)
+export default Search

@@ -2,15 +2,11 @@ import React from 'react'
 import styles from './styles.module.scss'
 import Title from './Title'
 import Card from './Card'
-import arrowLeft from '../../../public/static/assets/svgs/arrow-left.svg'
-import arrowRight from '../../../public/static/assets/svgs/arrow-right.svg'
 import Icon from '../../ui/Icon'
 
-interface TitleProps {
-  title?: string
-}
+interface CatalogProps {}
 
-const Catalog: React.FC<TitleProps> = ({ title }) => {
+const Catalog: React.FC<CatalogProps> = () => {
   return (
     <div className={styles.catalog}>
       <Title title="Popular Movies" />

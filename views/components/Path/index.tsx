@@ -1,19 +1,22 @@
 import React from 'react'
 import styles from './styles.module.scss'
-//import SearchSvg from '../../../public/static/assets/svgs/search.svg'
+import Link from 'next/link'
 
-interface TitleProps {
-  title?: string
+interface PathProps {
   path?: string
   className?: string
 }
 
-const BoilerPlate: React.FC<TitleProps> = ({ title, path, className }) => {
+const Path: React.FC<PathProps> = ({ path, className }) => {
   return (
     <div className={styles.pathContainer + ' ' + className}>
       <div className="container">
         <div className={styles.path}>
-          <span>Home</span> <span>/</span>{' '}
+          <Link href="/">
+            <a>
+              <span>Home</span> <span>/</span>{' '}
+            </a>
+          </Link>
           <span>{path ? path : 'Search results'}</span>
         </div>
       </div>
@@ -21,4 +24,4 @@ const BoilerPlate: React.FC<TitleProps> = ({ title, path, className }) => {
   )
 }
 
-export default BoilerPlate
+export default Path

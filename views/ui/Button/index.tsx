@@ -5,13 +5,13 @@ import styles from './styles.module.scss'
 interface ButtonProps {
   name?: string
   type?: string
-  className?: any
-  firstIcon?: any
-  lastIcon?: any
+  className?: string
+  firstIcon?: string
+  lastIcon?: string
   onClick?: any
   active?: boolean
   disabled?: boolean
-  children?: React.ReactElement
+  children?: React.ReactNode
 }
 
 const Button = ({

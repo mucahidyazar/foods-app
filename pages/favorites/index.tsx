@@ -1,5 +1,4 @@
 import styles from './styles.module.scss'
-import { withTranslation } from '../../config/i18n/index'
 import { connect } from 'react-redux'
 import MainLayout from '../../views/layouts/Main'
 import SearchBox from '../../views/components/SearchBox'
@@ -8,9 +7,15 @@ import CategoryTitle from '../../views/components/CategoryTitle'
 import GroupOne from '../../views/components/Groups/GroupOne'
 import { useRouter } from 'next/router'
 import { getFavorites } from '../../redux/actions'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import Pagination from '../../views/ui/Pagination'
 
-function Home({ dispatch, favorites }): any {
+interface FavoritesProps {
+  dispatch: any
+  favorites: []
+}
+
+const Favorites: React.FC<FavoritesProps> = ({ dispatch, favorites }) => {
   useEffect(() => {
     dispatch(getFavorites())
   }, [])
@@ -20,7 +25,7 @@ function Home({ dispatch, favorites }): any {
   const path = pathname.slice(1)
 
   return (
-    <MainLayout title="Home Page">
+    <MainLayout title="Favorites Page">
       <Path path={path} />
       <SearchBox />
       <CategoryTitle title="Favorites" />
@@ -31,12 +36,10 @@ function Home({ dispatch, favorites }): any {
           <h4>There is no content. You can search and add some movies.</h4>
         </div>
       )}
+
+      <Pagination page="1" pagesCount={Math.ceil(favorites.length / 6)} />
     </MainLayout>
   )
-}
-
-Home.getInitialProps = async () => {
-  return { namespacesRequired: ['common'] }
 }
 
 const mapStateToProps = (state) => {
@@ -45,4 +48,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Favorites)

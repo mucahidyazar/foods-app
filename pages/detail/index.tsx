@@ -1,22 +1,19 @@
-import styles from './styles.module.scss'
-import { withTranslation } from '../../config/i18n/index'
-import { connect } from 'react-redux'
-import { getProducts, setProducts } from '../../redux/actions'
 import MainLayout from '../../views/layouts/Main'
-import SearchBox from '../../views/components/SearchBox'
 import Path from '../../views/components/Path'
 import DetailComp from '../../views/components/Detail'
-import CategoryTitle from '../../views/components/CategoryTitle'
-import GroupOne from '../../views/components/Groups/GroupOne'
 import Catalog from '../../views/components/Catalog'
 
-function Detail({ data }): any {
+interface DetailProps {
+  data: any
+}
+
+const Detail: React.FC<DetailProps> = ({ data }) => {
   return (
     <MainLayout title="Detail Page">
       <Path />
       {data.Genre && (
         <div className="container">
-          <DetailComp data={data} className={styles.content} />
+          <DetailComp data={data} />
         </div>
       )}
       <Catalog />
@@ -49,10 +46,4 @@ export async function getServerSideProps(ctx) {
   return { props: { data } }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.main.products,
-  }
-}
-
-export default connect(mapStateToProps)(Detail)
+export default Detail

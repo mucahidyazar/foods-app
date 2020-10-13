@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './styles.module.scss'
-//import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
 interface TitleProps {
   title?: string

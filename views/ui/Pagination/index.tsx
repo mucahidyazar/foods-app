@@ -3,12 +3,15 @@ import Button from '../Button'
 import styles from './styles.module.scss'
 //import SearchSvg from '../../../public/static/assets/svgs/search.svg'
 
-interface PaginationProps {
+interface PaginationInterface {
   pagesCount?: number
   page?: string
 }
 
-const Pagination: React.FC<PaginationProps> = ({ pagesCount, page = '1' }) => {
+const Pagination: React.FC<PaginationInterface> = ({
+  pagesCount,
+  page = '1',
+}) => {
   return (
     <div className={styles.pagination}>
       <Button name="Previous" type="pageText" />

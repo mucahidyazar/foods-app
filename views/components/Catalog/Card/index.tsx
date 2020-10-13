@@ -4,12 +4,11 @@ import ImdbSvg from '../../../../public/static/assets/svgs/imdb.svg'
 import Button from '../../../ui/Button'
 import Link from 'next/link'
 
-interface TitleProps {
-  title?: string
+interface CatalogCardProps {
   className?: string
 }
 
-const CatalogCard: React.FC<TitleProps> = ({ title, className }) => {
+const CatalogCard: React.FC<CatalogCardProps> = ({ className }) => {
   return (
     <div className={styles.card + ' ' + className}>
       <div className={styles.cardImage}>

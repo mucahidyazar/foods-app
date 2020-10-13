@@ -6,7 +6,15 @@ import Button from '../Button'
 import { useRouter } from 'next/router'
 import Icon from '../Icon'
 
-const SearchBox = ({
+interface SearchBoxInterface {
+  className: string
+  value: string
+  setValue: any
+  year: string
+  type: string
+}
+
+const SearchBox: React.FC<SearchBoxInterface> = ({
   className = '',
   value,
   setValue,

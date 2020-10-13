@@ -8,13 +8,17 @@ import Link from 'next/link'
 import { switchFavorite } from '../../../../redux/actions'
 import { connect } from 'react-redux'
 
-interface TitleProps {
+interface MovieCardOneProps {
   movie?: any
   dispatch?: any
   favorites: any
 }
 
-const MovieCardOne: React.FC<TitleProps> = ({ movie, dispatch, favorites }) => {
+const MovieCardOne: React.FC<MovieCardOneProps> = ({
+  movie,
+  dispatch,
+  favorites,
+}) => {
   const [data, setData] = useState(null)
   const [isFavorite, setIsFavorite] = useState(false)
 

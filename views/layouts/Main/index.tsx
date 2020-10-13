@@ -3,12 +3,12 @@ import Head from 'next/head'
 import styles from './styles.module.scss'
 import Nav from '../Nav'
 
-interface IProps {
+interface MainLayoutInterface {
   title?: string
   children: React.ReactNode
 }
 
-const MainLayout: React.FC<IProps> = ({ title, children }) => (
+const MainLayout: React.FC<MainLayoutInterface> = ({ title, children }) => (
   <div className={styles.main}>
     <Head>
       <title>{title}</title>

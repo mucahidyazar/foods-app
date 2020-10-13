@@ -1,8 +1,7 @@
 import styles from './styles.module.scss'
-import { connect } from 'react-redux'
 import MainLayout from '../../views/layouts/Main'
 
-function NotFound({ data }): any {
+function NotFound() {
   return (
     <MainLayout title="404">
       <div className={styles.notFound}>
@@ -12,10 +11,4 @@ function NotFound({ data }): any {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.main.products,
-  }
-}
-
-export default connect(mapStateToProps)(NotFound)
+export default NotFound

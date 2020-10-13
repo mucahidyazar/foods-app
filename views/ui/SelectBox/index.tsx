@@ -1,7 +1,21 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-const SearchBox = ({ label, className, data, state, setState }) => {
+interface SelectBoxInterface {
+  label: string
+  className: string
+  data: string[]
+  state: string
+  setState: any
+}
+
+const SelectBox: React.FC<SelectBoxInterface> = ({
+  label,
+  className,
+  data,
+  state,
+  setState,
+}) => {
   return (
     <div className={styles.selectBox + ' ' + className}>
       <input type="checkbox" id={label} />
@@ -29,4 +43,4 @@ const SearchBox = ({ label, className, data, state, setState }) => {
   )
 }
 
-export default SearchBox
+export default SelectBox

@@ -3,15 +3,14 @@ import styles from './styles.module.scss'
 import SelectBox from '../../ui/SelectBox'
 import Input from '../../ui/Input'
 import Button from '../../ui/Button'
-import SearchSvg from '../../../public/static/assets/svgs/arrow-right.svg'
 import { types, years } from '../../../config/dummy/data'
 import { useRouter } from 'next/router'
 
-interface SearchBoxProps {
+interface SearchBoxInterface {
   className?: string
 }
 
-const SearchBox: React.FC<SearchBoxProps> = ({ className }) => {
+const SearchBox: React.FC<SearchBoxInterface> = ({ className }) => {
   const router = useRouter()
 
   const [value, setValue] = useState('')
