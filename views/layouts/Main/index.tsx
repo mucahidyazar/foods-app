@@ -14,6 +14,10 @@ const MainLayout: React.FC<MainLayoutInterface> = ({ title, children }) => (
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+      <meta name="description" content="A site for my programming" />
+      <meta charSet="UTF-8" />
+      <meta name="robots" content="noindex, nofollow" />
     </Head>
     <Nav />
     <div className={styles.container}>{children}</div>
