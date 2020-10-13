@@ -1,17 +1,15 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import SearchSvg from '../../../public/static/assets/svgs/search.svg'
-import Link from 'next/link'
 import Button from '../Button'
 import { useRouter } from 'next/router'
 import Icon from '../Icon'
 
 interface SearchBoxInterface {
-  className: string
-  value: string
-  setValue: any
-  year: string
-  type: string
+  className?: string
+  value?: string
+  setValue?: any
+  year?: string
+  type?: string
 }
 
 const SearchBox: React.FC<SearchBoxInterface> = ({
